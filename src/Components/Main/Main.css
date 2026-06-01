@@ -1,0 +1,831 @@
+.inicio-campus{
+  position: relative;
+  min-height: calc(100vh - 78px);
+  width: 100%;
+  overflow: hidden;
+  background-image:
+    linear-gradient(
+      90deg,
+      rgba(8, 31, 13, 0.72) 0%,
+      rgba(8, 31, 13, 0.45) 38%,
+      rgba(8, 31, 13, 0.10) 70%,
+      rgba(8, 31, 13, 0.05) 100%
+    ),
+    url('/img/campus-amazonico.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 80px min(8vw, 120px) 0;
+  margin: 0;
+  color: white;
+}
+
+.sun-light{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 190, 0.08) 30%,
+    rgba(255, 255, 210, 0.25) 46%,
+    rgba(255, 255, 190, 0.08) 62%,
+    transparent 100%
+  );
+  transform: translateX(-40%);
+  animation: sunlightMove 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes sunlightMove{
+  0%{
+    transform: translateX(-45%);
+    opacity: 0.25;
+  }
+
+  50%{
+    transform: translateX(25%);
+    opacity: 0.65;
+  }
+
+  100%{
+    transform: translateX(80%);
+    opacity: 0.25;
+  }
+}
+
+.forest-depth{
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 25% 70%, rgba(78, 150, 61, 0.18), transparent 32%),
+    radial-gradient(circle at 78% 35%, rgba(99, 180, 72, 0.20), transparent 34%);
+  animation: forestWave 7s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes forestWave{
+  0%, 100%{
+    transform: translateY(0) scale(1);
+  }
+
+  50%{
+    transform: translateY(-8px) scale(1.015);
+  }
+}
+
+.corner-leaves{
+  position: absolute;
+  width: 260px;
+  height: 1000px;
+  background:
+    radial-gradient(ellipse at center, rgba(10, 18, 3, 0.95), transparent 10%);
+  filter: blur(0.10px);
+  opacity: 0.85;
+  z-index: 4;
+  pointer-events: none;
+}
+
+.leaves-left{
+  top: -65px;
+  left: -75px;
+  border-radius: 0 0 90% 0;
+  transform-origin: top left;
+  animation: leavesWindLeft 4.5s ease-in-out infinite;
+}
+
+.leaves-right{
+  top: -65px;
+  right: -70px;
+  border-radius: 0 0 0 90%;
+  transform-origin: top right;
+  animation: leavesWindRight 4.8s ease-in-out infinite;
+}
+
+.leaves-left::before,
+.leaves-left::after,
+.leaves-right::before,
+.leaves-right::after{
+  content: '🌿';
+  position: absolute;
+  font-size: 90px;
+}
+
+.leaves-left::before{
+  top: 45px;
+  left: 70px;
+  transform: rotate(12deg);
+}
+
+.leaves-left::after{
+  top: 0;
+  left: 15px;
+  transform: rotate(-25deg);
+}
+
+.leaves-right::before{
+  top: 40px;
+  right: 50px;
+  transform: rotate(-10deg);
+}
+
+.leaves-right::after{
+  top: 0;
+  right: 10px;
+  transform: rotate(28deg);
+}
+
+@keyframes leavesWindLeft{
+  0%, 100%{
+    transform: rotate(0deg);
+  }
+
+  50%{
+    transform: rotate(4deg);
+  }
+}
+
+@keyframes leavesWindRight{
+  0%, 100%{
+    transform: rotate(0deg);
+  }
+
+  50%{
+    transform: rotate(-4deg);
+  }
+}
+
+/* Tucán fijo decorativo */
+.toucan-scene{
+  position: absolute;
+  top: 120px;
+  right: 80px;
+  z-index: 6;
+  pointer-events: none;
+}
+
+@keyframes toucanMove{
+  0%, 100%{
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+
+  35%{
+    transform: translateY(-8px) rotate(-3deg) scale(1.02);
+  }
+
+  70%{
+    transform: translateY(4px) rotate(3deg) scale(1);
+  }
+}
+
+/* Tucanes volando por toda la página */
+.toucan-flock{
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 95;
+  overflow: hidden;
+}
+
+.toucan{
+  position: fixed;
+  left: 110vw;
+  width: 165px;
+  height: 120px;
+  opacity: 0;
+  background-image: url('/img/tucan-volando.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(0 14px 18px rgba(0,0,0,0.32));
+}
+
+.toucan-1{
+  top: 12vh;
+  animation: flyToucan1 8.8s linear forwards;
+}
+
+.toucan-2{
+  top: 26vh;
+  animation: flyToucan2 9.2s linear forwards;
+  animation-delay: 0.25s;
+}
+
+.toucan-3{
+  top: 40vh;
+  animation: flyToucan3 9.4s linear forwards;
+  animation-delay: 0.45s;
+}
+
+.toucan-4{
+  top: 56vh;
+  animation: flyToucan4 9s linear forwards;
+  animation-delay: 0.65s;
+}
+
+.toucan-5{
+  top: 72vh;
+  animation: flyToucan5 9.3s linear forwards;
+  animation-delay: 0.85s;
+}
+
+@keyframes flyToucan1{
+  0%{
+    left: 110vw;
+    transform: translateY(0) scale(1) rotate(-2deg);
+    opacity: 0;
+  }
+
+  8%{
+    opacity: 1;
+  }
+
+  40%{
+    left: 65vw;
+    transform: translateY(-20px) scale(1.02) rotate(2deg);
+    opacity: 1;
+  }
+
+  75%{
+    left: 28vw;
+    transform: translateY(8px) scale(0.95) rotate(-1deg);
+    opacity: 1;
+  }
+
+  100%{
+    left: -18vw;
+    transform: translateY(-10px) scale(0.78) rotate(-4deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flyToucan2{
+  0%{
+    left: 112vw;
+    transform: translateY(0) scale(0.95) rotate(1deg);
+    opacity: 0;
+  }
+
+  8%{
+    opacity: 1;
+  }
+
+  40%{
+    left: 70vw;
+    transform: translateY(18px) scale(1) rotate(-2deg);
+  }
+
+  75%{
+    left: 32vw;
+    transform: translateY(-8px) scale(0.92) rotate(1deg);
+    opacity: 1;
+  }
+
+  100%{
+    left: -20vw;
+    transform: translateY(10px) scale(0.75) rotate(-4deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flyToucan3{
+  0%{
+    left: 110vw;
+    transform: translateY(0) scale(1.02) rotate(-1deg);
+    opacity: 0;
+  }
+
+  8%{
+    opacity: 1;
+  }
+
+  40%{
+    left: 66vw;
+    transform: translateY(-14px) scale(1.05) rotate(2deg);
+  }
+
+  75%{
+    left: 30vw;
+    transform: translateY(12px) scale(0.95) rotate(-2deg);
+    opacity: 1;
+  }
+
+  100%{
+    left: -18vw;
+    transform: translateY(-10px) scale(0.78) rotate(-4deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flyToucan4{
+  0%{
+    left: 111vw;
+    transform: translateY(0) scale(0.98) rotate(2deg);
+    opacity: 0;
+  }
+
+  8%{
+    opacity: 1;
+  }
+
+  40%{
+    left: 68vw;
+    transform: translateY(16px) scale(1.02) rotate(-1deg);
+  }
+
+  75%{
+    left: 34vw;
+    transform: translateY(-8px) scale(0.93) rotate(2deg);
+    opacity: 1;
+  }
+
+  100%{
+    left: -20vw;
+    transform: translateY(12px) scale(0.76) rotate(-5deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flyToucan5{
+  0%{
+    left: 110vw;
+    transform: translateY(0) scale(1) rotate(-1deg);
+    opacity: 0;
+  }
+
+  8%{
+    opacity: 1;
+  }
+
+  40%{
+    left: 72vw;
+    transform: translateY(-10px) scale(1.03) rotate(1deg);
+  }
+
+  75%{
+    left: 36vw;
+    transform: translateY(10px) scale(0.94) rotate(-2deg);
+    opacity: 1;
+  }
+
+  100%{
+    left: -18vw;
+    transform: translateY(-12px) scale(0.76) rotate(-4deg);
+    opacity: 0;
+  }
+}
+
+/* Iconos flotantes de tucán y sonido */
+.floating-tools{
+  position: fixed;
+  right: 28px;
+  top: 55%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.mini-tool{
+  width: 58px;
+  height: 58px;
+  border: 1px solid rgba(255,255,255,0.65);
+  background: rgba(255,255,255,0.94);
+  border-radius: 20px;
+  box-shadow: 0 18px 34px rgba(0,0,0,0.22);
+  display: grid;
+  place-items: center;
+  font-size: 25px;
+  cursor: pointer;
+  transition: 0.25s ease;
+  backdrop-filter: blur(10px);
+}
+
+.mini-tool:hover{
+  transform: translateY(-3px) scale(1.05);
+}
+
+.mini-tool.active{
+  background: #dcfce7;
+  border-color: #bbf7d0;
+}
+
+/* Contenido principal */
+.inicio-content{
+  position: relative;
+  z-index: 8;
+  max-width: 640px;
+  padding-top: 28px;
+}
+
+.inicio-badge{
+  display: inline-flex;
+  width: fit-content;
+  padding: 9px 16px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  backdrop-filter: blur(8px);
+  color: #dcfce7;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.inicio-content h1{
+  margin: 24px 0 18px;
+  font-size: clamp(2.8rem, 6vw, 5.4rem);
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+  color: #ffffff;
+  text-shadow: 0 8px 30px rgba(0, 0, 0, 0.28);
+}
+
+.inicio-content p{
+  margin: 0;
+  max-width: 580px;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.7;
+  font-size: 1.08rem;
+}
+
+/* Se ocultan los botones del hero que marcaste en rojo */
+.inicio-actions{
+  display: none !important;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.inicio-btn{
+  min-height: 48px;
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: 1px solid transparent;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 900;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.25s ease;
+}
+
+.inicio-btn:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.22);
+}
+
+.inicio-btn.primary{
+  background: #2e8b57;
+  color: #ffffff;
+}
+
+.inicio-btn.secondary{
+  background: rgba(255, 255, 255, 0.92);
+  color: #132018;
+}
+
+.inicio-btn.sound{
+  background: rgba(254, 243, 199, 0.95);
+  color: #92400e;
+  border-color: rgba(253, 230, 138, 0.9);
+}
+
+.inicio-btn.sound.active{
+  background: rgba(220, 252, 231, 0.96);
+  color: #166534;
+  border-color: rgba(187, 247, 208, 0.95);
+}
+
+.btn-icon{
+  margin-right: 8px;
+}
+
+.audio-warning{
+  margin-top: 16px;
+  max-width: 520px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: rgba(254, 243, 199, 0.95);
+  border: 1px solid #fde68a;
+  color: #92400e !important;
+  font-size: 14px;
+}
+
+/* Tarjetas inferiores mejoradas */
+.inicio-info{
+  position: relative;
+  z-index: 8;
+  margin-top: 82px;
+  max-width: 1080px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  padding-bottom: 52px;
+}
+
+.inicio-info article{
+  position: relative;
+  overflow: hidden;
+  min-height: 175px;
+  padding: 28px 26px;
+  border-radius: 30px;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.30), rgba(255,255,255,0.12)),
+    rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.36);
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 24px 52px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255,255,255,0.35);
+  transition: 0.25s ease;
+}
+
+.inicio-info article::before{
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 18% 22%, rgba(220, 252, 231, 0.26), transparent 28%),
+    radial-gradient(circle at 90% 88%, rgba(134, 239, 172, 0.18), transparent 30%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.inicio-info article:hover{
+  transform: translateY(-9px);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.38), rgba(255,255,255,0.16)),
+    rgba(255,255,255,0.22);
+  border-color: rgba(187, 247, 208, 0.55);
+  box-shadow:
+    0 30px 66px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0 rgba(255,255,255,0.45);
+}
+
+.inicio-info article:hover::before{
+  opacity: 1;
+}
+
+.inicio-info article > *{
+  position: relative;
+  z-index: 2;
+}
+
+.inicio-info span{
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  border-radius: 22px;
+  background:
+    linear-gradient(135deg, rgba(46, 139, 87, 0.95), rgba(74, 222, 128, 0.78));
+  box-shadow:
+    0 16px 32px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255,255,255,0.30);
+  font-size: 28px;
+  margin-bottom: 14px;
+}
+
+.inicio-info h3{
+  margin: 16px 0 10px;
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 950;
+  letter-spacing: -0.03em;
+}
+
+.inicio-info p{
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.65;
+  font-size: 15px;
+}
+
+/* Unión con el footer */
+.inicio-campus + .footer{
+  margin-top: 0 !important;
+}
+
+/* Responsive */
+@media (max-width: 1024px){
+  .inicio-campus{
+    padding: 70px 28px 0;
+  }
+
+  .toucan-scene{
+    top: 110px;
+    right: 50px;
+  }
+
+  .toucan-body{
+    width: 130px;
+    height: 90px;
+  }
+
+  .inicio-info{
+    grid-template-columns: 1fr;
+    max-width: 620px;
+  }
+}
+
+@media (max-width: 768px){
+  .inicio-campus{
+    min-height: auto;
+    padding: 56px 22px 0;
+    background-position: center;
+  }
+
+  .inicio-content{
+    padding-top: 20px;
+  }
+
+  .inicio-content h1{
+    font-size: 3rem;
+  }
+
+  .inicio-actions{
+    display: none !important;
+  }
+
+  .inicio-btn{
+    width: 100%;
+  }
+
+  .inicio-info{
+    margin-top: 54px;
+    padding-bottom: 34px;
+  }
+
+  .toucan-scene{
+    top: 95px;
+    right: 24px;
+    opacity: 0.85;
+  }
+
+  .toucan-body{
+    width: 105px;
+    height: 78px;
+  }
+
+  .toucan{
+    width: 118px;
+    height: 88px;
+  }
+
+  .corner-leaves{
+    width: 190px;
+    height: 150px;
+  }
+
+  .leaves-left::before,
+  .leaves-left::after,
+  .leaves-right::before,
+  .leaves-right::after{
+    font-size: 62px;
+  }
+
+  .floating-tools{
+    top: auto;
+    bottom: 20px;
+    right: 14px;
+    transform: none;
+  }
+
+  .mini-tool{
+    width: 50px;
+    height: 50px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px){
+  .inicio-content h1{
+    font-size: 2.4rem;
+  }
+
+  .inicio-content p{
+    font-size: 0.98rem;
+  }
+
+  .inicio-badge{
+    font-size: 11px;
+  }
+
+  .toucan-scene{
+    display: none;
+  }
+
+  .toucan{
+    width: 92px;
+    height: 68px;
+  }
+}
+/* ============================= */
+/* AJUSTES FINALES PÁGINA INICIO */
+/* ============================= */
+
+/* Quitar el texto marcado en rojo */
+.inicio-badge{
+  display: none !important;
+}
+
+/* Subir un poco el título porque ya no está el badge */
+.inicio-content h1{
+  margin-top: 0 !important;
+}
+
+/* Centrar mejor los cuadros de presentación */
+.inicio-info{
+  width: min(1120px, calc(100% - 80px));
+  max-width: 1120px !important;
+  margin: 70px auto 70px !important;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(240px, 1fr));
+  justify-content: center;
+  align-items: stretch;
+  gap: 26px !important;
+  padding-bottom: 60px !important;
+}
+
+/* Mejorar diseño de los cuadros */
+.inicio-info article{
+  min-height: 205px;
+  padding: 30px 28px !important;
+  border-radius: 30px !important;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.34), rgba(255,255,255,0.13)),
+    rgba(255,255,255,0.18) !important;
+  border: 1px solid rgba(255,255,255,0.42) !important;
+  backdrop-filter: blur(18px);
+  box-shadow:
+    0 24px 55px rgba(0, 0, 0, 0.24),
+    inset 0 1px 0 rgba(255,255,255,0.38) !important;
+}
+
+/* Efecto bonito al pasar el mouse */
+.inicio-info article:hover{
+  transform: translateY(-8px);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,0.42), rgba(255,255,255,0.18)),
+    rgba(255,255,255,0.24) !important;
+  border-color: rgba(187, 247, 208, 0.60) !important;
+  box-shadow:
+    0 32px 70px rgba(0, 0, 0, 0.30),
+    inset 0 1px 0 rgba(255,255,255,0.45) !important;
+}
+
+/* Iconos de los cuadros más limpios */
+.inicio-info span{
+  width: 64px !important;
+  height: 64px !important;
+  border-radius: 22px !important;
+  background: linear-gradient(135deg, #229954, #58d68d) !important;
+  box-shadow: 0 16px 34px rgba(0, 0, 0, 0.24) !important;
+  font-size: 28px !important;
+}
+
+/* Títulos de los cuadros */
+.inicio-info h3{
+  font-size: 1.35rem !important;
+  font-weight: 950 !important;
+  margin-top: 18px !important;
+  margin-bottom: 10px !important;
+}
+
+/* Texto de los cuadros */
+.inicio-info p{
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+  color: rgba(255, 255, 255, 0.90) !important;
+}
+
+/* Ajuste para pantallas medianas */
+@media (max-width: 1024px){
+  .inicio-info{
+    width: min(720px, calc(100% - 40px));
+    grid-template-columns: 1fr !important;
+    margin: 55px auto 55px !important;
+  }
+}
+
+/* Ajuste para celular */
+@media (max-width: 600px){
+  .inicio-info{
+    width: calc(100% - 28px);
+    margin: 42px auto 42px !important;
+    gap: 18px !important;
+  }
+
+  .inicio-info article{
+    min-height: auto;
+    padding: 24px !important;
+  }
+}

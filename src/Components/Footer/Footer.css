@@ -1,0 +1,162 @@
+.footer{
+  width: 100%;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(76, 175, 80, 0.18), transparent 22%),
+    linear-gradient(135deg, #0c2611 0%, #123819 45%, #0d2c14 100%);
+  color: #ffffff;
+  padding: 26px 34px;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(187, 247, 208, 0.16);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.footer-content{
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  position: relative;
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-text{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-text p{
+  margin: 0;
+  font-size: 15px;
+  color: rgba(255,255,255,0.92);
+  line-height: 1.4;
+}
+
+.footer-text span{
+  margin-top: 4px;
+  font-size: 15px;
+  color: rgba(255,255,255,0.90);
+}
+.footer-logo-box{
+  position: absolute;
+  right: 80px;
+  bottom: 18px;
+  top: auto;
+  transform: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.footer-logo{
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.35));
+  animation: giroLogo 7s linear infinite;
+}
+@keyframes giroLogo{
+  0%{
+    transform: rotate(0deg);
+  }
+
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.footer-logo:hover{
+  animation-duration: 2s;
+}
+
+/* Responsive */
+@media (max-width: 768px){
+  .footer{
+    padding: 22px 18px;
+  }
+
+  .footer-content{
+    min-height: auto;
+    padding-top: 90px;
+  }
+
+  .footer-logo-box{
+    top: 16px;
+    right: 50%;
+    transform: translateX(50%);
+  }
+
+  .footer-logo{
+    width: 64px;
+    height: 64px;
+  }
+
+  .footer-text p,
+  .footer-text span{
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px){
+  .footer-text p,
+  .footer-text span{
+    font-size: 12px;
+  }
+
+  .footer-logo{
+    width: 58px;
+    height: 58px;
+  }
+}
+.footer{
+  position: relative !important;
+}
+
+.footer-content{
+  position: static !important;
+  width: 100% !important;
+  max-width: none !important;
+}
+
+.footer-logo-box{
+  position: absolute !important;
+  right: 36px !important;
+  bottom: 24px !important;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+  z-index: 10 !important;
+}
+
+.footer-logo{
+  width: 92px !important;
+  height: 92px !important;
+  object-fit: contain !important;
+  filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.35)) !important;
+  animation: giroLogo 7s linear infinite !important;
+}
+
+@keyframes giroLogo{
+  0%{
+    transform: rotate(0deg);
+  }
+
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.footer-logo:hover{
+  animation-duration: 2s !important;
+}
+@media (max-width: 768px){
+  .footer-logo-box{
+    right: 18px !important;
+    bottom: 18px !important;
+  }
+
+  .footer-logo{
+    width: 68px !important;
+    height: 68px !important;
+  }
+}
